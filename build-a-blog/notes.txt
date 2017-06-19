@@ -1,0 +1,20 @@
+@app.route('/newpost', methods=['GET', 'POST'])
+def new_post():
+	# some stuff
+	
+	# make a post, save to database
+	
+	# get id for post, add to url
+	
+	return redirect('/post?id=' + id)
+	
+	
+#request will look like: /post?id=7
+@app.rout('/post')
+def single_post():
+	# get id out of request
+	
+	# get post with above id out of the database
+	
+	# give post to template, render
+	
