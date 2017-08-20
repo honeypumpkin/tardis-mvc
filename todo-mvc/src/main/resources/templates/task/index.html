@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+
+<body class="container">
+
+<h1 th:text="${title}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<p th:unless="${tasks} and ${tasks.size()}">no tasks :(</p>
+
+
+<table class="table">
+
+    <tr>
+        <th>Name</th>
+        <th>Description</th>
+        <th>Project</th>
+    </tr>
+
+    <tr th:each="task : ${tasks}">
+        <td th:text="${tasks.name}"></td>
+        <td th:text="${task.description}"></td>
+        <td th:text="${task.project.name}"></td>
+    </tr>
+
+</table>
+
+<p>
+    <a href="/task/add">Add</a> |
+    <a href="/task/remove">Remove</a>
+</p>
+
+</body>
+</html>
