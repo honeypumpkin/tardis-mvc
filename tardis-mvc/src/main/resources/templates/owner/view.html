@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${owner.name}">Default Title</h1>
+
+<nav th:replace="fragments :: navigation"></nav>
+
+<ul>
+    <li th:each="task : ${owner.tasks}" th:text="${task.name}"></li>
+</ul>
+
+<p th:unless="${owner.tasks.size()}"><i>No tasks yet</i></p>
+
+<p><a th:href="'/owner/add-item/' + ${owner.uid}">Add Task</a></p>
+
+</body>
+</html>
